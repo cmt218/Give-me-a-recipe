@@ -3,6 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var request = require('request');
 
 var index = require('./routes/index');
 var about = require('./routes/about');
@@ -23,6 +24,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/about', about);
+
+//recipe api call
+app.post('/getres', function(req, res){
+	request.get('http://www.recipepuppy.com/api/?i=' + req.body.ingredient, function(error, response, body){
+		var recipes = JSON.parse(body);
+		res.send(recipes);
+	});
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

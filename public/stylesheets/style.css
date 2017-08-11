@@ -6,3 +6,32 @@ body {
 a {
   color: #00B7FF;
 }
+
+input[type=text] {
+	width: 30%;
+	-webkit-transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+	width: 100%;
+}
+
+#header {
+	width: 100%;
+}
+
+#search {
+	margin-top: 20px;
+}
+
+.result {
+	position: relative;
+	padding: 40px;
+	width: 50%;
+}
+
+.result > img {
+	right: 10px;
+	position: absolute;
+}

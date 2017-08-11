@@ -3,16 +3,21 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src='/javascripts/script.js'></script>
   </head>
   <body>
 
-  	<% include templates/header.ejs %>
-
-  	<ul>
-  		<% recipedata.results.forEach(function(item){ %>
-  			<li> <%= item.title %> </li>
-  		<% }); %>
-  	</ul>
+    <div id='header'>
+  	 <% include templates/header.ejs %>
+    </div>
     
+    <div id='search'>
+      <input type='text' name='search' placeholder='ingredients...' onkeydown='submit(this)'>
+    </div>
+
+    <div id='putResults'>
+    </div>
+
   </body>
 </html>
