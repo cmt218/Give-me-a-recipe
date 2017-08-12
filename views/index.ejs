@@ -2,12 +2,17 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src='/javascripts/script.js'></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--My Stylesheet-->
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
   </head>
+ 
   <body>
-
     <div id='header'>
   	 <% include templates/header.ejs %>
     </div>
@@ -19,5 +24,10 @@
     <div id='putResults'>
     </div>
 
+    <!--jQuery, materialize, and my scripts-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/materialize.min.js"></script>
+    <script type="text/javascript" src='/javascripts/script.js'></script>
   </body>
+
 </html>
