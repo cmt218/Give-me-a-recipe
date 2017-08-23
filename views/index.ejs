@@ -16,13 +16,31 @@
     <div id='header'>
   	 <% include templates/header.ejs %>
     </div>
-    
-    <div id='search'>
-      <input type='text' name='search' placeholder='ingredients...' onkeydown='submit(this)'>
-    </div>
 
-    <div id='putResults'>
+    <div class="col s12 m7" id="card_template">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
     </div>
+  </div>
+
+    <div class="chips chips-placeholder" id="ingredients"></div>
+
+    <button class="btn waves-effect waves-light" id="submit" type="submit" name="action" onclick="sendIngredients()">
+      Recipe Me
+      <i class="material-icons right">add_circle_outline</i>
+    </button>
+
+    <div id='putResults'></div>
 
     <!--jQuery, materialize, and my scripts-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>

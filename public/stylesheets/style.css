@@ -11,10 +11,23 @@ a {
 	width: 100%;
 }
 
+#card_template {
+	display: none;
+}
+
 #search {
 	margin-top: 20px;
 }
 
+#ingredients {
+	margin-top: 20px;
+}
+
+#submit {
+	margin-bottom: 20px;
+}
+
+/*
 .result {
 	position: relative;
 	padding: 40px;
@@ -25,3 +38,4 @@ a {
 	right: 10px;
 	position: absolute;
 }
+*/
