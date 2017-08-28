@@ -9,18 +9,11 @@ a {
 
 #header {
 	width: 100%;
+	margin-bottom: 45px;
 }
 
 #card_template {
 	display: none;
-}
-
-#search {
-	margin-top: 20px;
-}
-
-#ingredients {
-	margin-top: 20px;
 }
 
 #submit {

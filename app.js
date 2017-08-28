@@ -27,8 +27,16 @@ app.use('/about', about);
 
 //recipe api call
 app.post('/getres', function(req, res){
-	request.get('http://www.recipepuppy.com/api/?i=' + req.body.ingredient, function(error, response, body){
-		var recipes = JSON.parse(body);
+	request.get(req.body.urlString, function(error, response, body){
+    
+    //handle case where API returns 404 page
+    var recipes;
+    try{
+      recipes = JSON.parse(body);
+    }
+    catch(e){
+      recipes = "null";
+    }
 		res.send(recipes);
 	});
 });

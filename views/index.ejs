@@ -13,7 +13,7 @@
   </head>
  
   <body>
-    <div id='header'>
+    <div id="header">
   	 <% include templates/header.ejs %>
     </div>
 
@@ -33,7 +33,11 @@
     </div>
   </div>
 
+    <p>I have... </p>
     <div class="chips chips-placeholder" id="ingredients"></div>
+
+    <p>(Optional) I want to make...
+    <div class="chips chips-placeholder" id="query"></div>
 
     <button class="btn waves-effect waves-light" id="submit" type="submit" name="action" onclick="sendIngredients()">
       Recipe Me
