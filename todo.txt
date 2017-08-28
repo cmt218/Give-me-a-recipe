@@ -1,0 +1,6 @@
+Functionality to add:
+- Google image search for recipes without images
+- "I'm feeling lucky" type search to return one recipe at random
+- Make cards prettier or devise another display scheme
+- Host via Heroku or AWS
+- Nutritional info? https://ndb.nal.usda.gov/ndb/doc/index
