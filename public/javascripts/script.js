@@ -1,3 +1,19 @@
+function sendYummly(){
+	var data = {};
+	data.urlString = 'http://api.yummly.com/v1/api/recipes?&q=onion+soup';
+
+	$.ajax({
+		type: 'POST',
+		data: JSON.stringify(data),
+		contentType: 'application/json',
+		url: 'http://localhost:6969/getYummly',
+		success: function(data){
+			console.log(data);
+		}
+	});
+}
+
+/*
 function sendIngredients(){
 
 	if(!checkInputs()){
@@ -64,6 +80,8 @@ function appendResults(response){
 		});
 	}
 }
+*/
+
 
 //materialize chip logic
 $('.chips').material_chip();
