@@ -25,22 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/about', about);
 
-//RECIPE PUPPY api call
-app.post('/getres', function(req, res){
-	request.get(req.body.urlString, function(error, response, body){
-    
-    //handle case where API returns 404 page
-    var recipes;
-    try{
-      recipes = JSON.parse(body);
-    }
-    catch(e){
-      recipes = "null";
-    }
-		res.send(recipes);
-	});
-});
-
+//YUMMLY API call
 app.post('/getYummly', function(req, res){
   var options = {
     url: req.body.urlString,
@@ -49,13 +34,25 @@ app.post('/getYummly', function(req, res){
       'X-Yummly-App-Key': '03f6d8ad677d610642b4f59c9676bfd1'
     }
   }
-
   request.get(options, function(error, response, body){
     var recipes = JSON.parse(body);
     res.send(recipes);
   });
 });
 
+app.post('/getRecipe', function(req, res){
+  var options = {
+    url: req.body.urlString,
+    headers: {
+      'X-Yummly-App-ID': 'e0fcc771',
+      'X-Yummly-App-Key': '03f6d8ad677d610642b4f59c9676bfd1'
+    }
+  }
+  request.get(options, function(error, response, body){
+    var recipe = JSON.parse(body);
+    res.send(recipe);
+  });
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

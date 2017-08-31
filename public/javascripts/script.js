@@ -8,79 +8,42 @@ function sendYummly(){
 		contentType: 'application/json',
 		url: 'http://localhost:6969/getYummly',
 		success: function(data){
-			console.log(data);
-		}
-	});
-}
-
-/*
-function sendIngredients(){
-
-	if(!checkInputs()){
-		return;
-	}
-
-	var ingredients = $('#ingredients').material_chip('data');
-	var query = $('#query').material_chip('data');
-
-	var data = {};
-	data.title = 'title';
-	data.message = 'message';
-	data.urlString = "http://www.recipepuppy.com/api/";
-	if(ingredients.length > 0){
-		data.urlString += "?i=";
-		ingredients.forEach(function(chip){
-			data.urlString += chip.tag+",";
-		});
-	}
-	if(query.length > 0){
-		data.urlString += "&q="
-		query.forEach(function(chip){
-			data.urlString += chip.tag+",";
-		});
-	}
-
-	$.ajax({
-		type: 'POST',
-		data: JSON.stringify(data),
-		contentType: 'application/json',
-		url: 'http://localhost:6969/getres',
-		success: function(data){
 			appendResults(data);
 		}
 	});
 }
 
-function checkInputs(){
-	var ingredients = $('#ingredients').material_chip('data');
-	var query = $('#query').material_chip('data');
+function fetchURL(button){
+	var id = $(button).attr('id');
+	var data = {};
+	data.urlString = 'http://api.yummly.com/v1/api/recipe/' +id+ '?';
 
-	if(ingredients.length == 0 || query.length > 1){
-		alert("bad input");
-		return false;
-	}
-	else{
-		return true;
-	}
+	$.ajax({
+		type: 'POST',
+		data: JSON.stringify(data),
+		contentType: 'application/json',
+		url: 'http://localhost:6969/getRecipe',
+		success: function(data){
+			//console.log(data.source);
+			window.location.href = data.source.sourceRecipeUrl;
+		}
+	});
 }
 
 function appendResults(response){
-	if(response == "null"){
-		alert("nothing found");
-	}
-	else{
 		$('#putResults').html('');
-		response.results.forEach(function(recipe){
+		response.matches.forEach(function(recipe){
 			var cardClone = $('#card_template').clone(true);
 			cardClone.css('display', 'unset');
 			$('#putResults').append(cardClone);
-			$('img', cardClone).attr('src', recipe.thumbnail);
-			$('.card-content' ,cardClone).html('<h2>'+recipe.title+'</h2>');
-			$('a', cardClone).attr('href', recipe.href).html('go to recipe');
+			$('img', cardClone).attr('src', recipe.smallImageUrls);
+			$('.card-content' ,cardClone).html('<h2>'+recipe.recipeName+'</h2>');
+			$('button', cardClone).attr('onclick', 'fetchURL(this)').html('go to recipe');
+			$('button', cardClone).attr('id', recipe.id);
 		});
-	}
 }
-*/
+
+
 
 
 //materialize chip logic
