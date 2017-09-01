@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!--My Stylesheet-->
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
-  </head>
- 
-  <body>
-    <div id="header">
-  	 <% include templates/header.ejs %>
-    </div>
+<head>
+  <title><%= title %></title>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!--My Stylesheet-->
+  <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
 
-    <div class="col s12 m7" id="card_template">
+<body>
+  <div id="header">
+    <% include templates/header.ejs %>
+  </div>
+
+  <div class="col s12 m7" id="card_template">
     <div class="card horizontal">
       <div class="card-image">
         <img src="">
@@ -35,10 +35,10 @@
     </div>
   </div>
 
-    <p>I have... </p>
-    <div class="chips chips-placeholder" id="ingredients"></div>
+  <p>I have... </p>
+  <div class="chips chips-placeholder" id="ingredients"></div>
 
-    <p>I want to make...
+  <p>I want to make...
     <div class="chips chips-placeholder" id="query"></div>
 
     <button class="btn waves-effect waves-light" id="submit" type="submit" name="action" onclick="sendYummly()">
@@ -64,4 +64,4 @@
     <script type="text/javascript" src='/javascripts/script.js'></script>
   </body>
 
-</html>
+  </html>
