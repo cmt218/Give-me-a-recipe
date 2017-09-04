@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -14,10 +14,6 @@ a {
 
 #card_template {
 	display: none;
-}
-
-#submit {
-	margin-bottom: 20px;
 }
 
 footer.page-footer {
@@ -54,6 +50,8 @@ footer.page-footer {
 	right: 0;
 }
 
-#putResults {
-	height: 50%;
+
+
+#buttons {
+	padding-bottom: 40px;
 }

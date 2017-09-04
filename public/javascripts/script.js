@@ -27,6 +27,7 @@ function generateURL(){
 	});
 
 	url += '&requirePictures=true';
+	url += '&maxResult=12&start=0';
 	return url;
 }
 
@@ -48,21 +49,25 @@ function fetchURL(button){
 }
 
 function appendResults(response){
-		$('#putResults').html('');
+		//$('#putResults').html('');
 
+		var gridIndex=1;
 		response.matches.forEach(function(recipe){
 			var cardClone = $('#card_template').clone(true);
 			cardClone.css('display', 'unset');
-			$('#putResults').append(cardClone);
+			$('#putCard'+gridIndex).append(cardClone);
+			gridIndex++;
 			$('img', cardClone).attr('src', recipe.smallImageUrls);
-			$('.card-content' ,cardClone).html('<h2>'+recipe.recipeName+'</h2>');
+			$('.card-title' ,cardClone).html(recipe.recipeName);
 			$('button', cardClone).attr('onclick', 'fetchURL(this)').html('go to recipe');
 			$('button', cardClone).attr('id', recipe.id);
 		});
 }
 
 function clearYummly() {
-	$('#putResults').html('');
+	$('.grid').each(function(x){
+		$(this).html('');
+	});
 	$('.chip').each(function(x){
 		this.remove();
 	});
