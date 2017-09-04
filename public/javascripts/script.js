@@ -49,6 +49,7 @@ function fetchURL(button){
 
 function appendResults(response){
 		$('#putResults').html('');
+
 		response.matches.forEach(function(recipe){
 			var cardClone = $('#card_template').clone(true);
 			cardClone.css('display', 'unset');
@@ -60,37 +61,35 @@ function appendResults(response){
 		});
 }
 
+function clearYummly() {
+	$('#putResults').html('');
+	$('.chip').each(function(x){
+		this.remove();
+	});
+	//clear chip data arrays
+	while($('#ingredients').material_chip('data').length){
+		$('#ingredients').material_chip('data').pop();
+	}
+	while($('#query').material_chip('data').length){
+		$('#query').material_chip('data').pop();
+	}
+	console.log($('#ingredients').material_chip('data'));
+	console.log($('#query').material_chip('data'));
+}
 
 
 
 //materialize chip logic
-$('.chips').material_chip();
 
-$('#ingredients').material_chip({
+$('#ingredients.chips').material_chip({
   placeholder: 'Enter Ingredients.',
   secondaryPlaceholder: '+',
 });
 
-$('#query').material_chip({
+$('#query.chips').material_chip({
   placeholder: 'Ex: Casserole',
   secondaryPlaceholder: '+',
 });
 
-var chip = {
-    tag: 'chip content',
-    image: '', //optional
-    id: 1, //optional
-};
-
-/*
-$('.chips').on('chip.add', function(e, chip){
-});
-
-$('.chips').on('chip.delete', function(e, chip){
-});
 
 
-$('.chips').on('chip.select', function(e, chip){
-
-});
-*/

@@ -19,3 +19,41 @@ a {
 #submit {
 	margin-bottom: 20px;
 }
+
+footer.page-footer {
+	padding: 0;
+}
+
+#copyright {
+	text-align: center;
+}
+
+#title {
+	padding-left: 20px;
+}
+
+#attribution {
+	text-align: center;
+}
+
+#submitbtn {
+	position: relative;
+}
+
+#submit {
+	position: absolute;
+	left: 0;
+}
+
+#clearbtn {
+	position: relative;
+}
+
+#clear {
+	position: absolute;
+	right: 0;
+}
+
+#putResults {
+	height: 50%;
+}

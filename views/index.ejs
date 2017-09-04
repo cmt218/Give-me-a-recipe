@@ -41,19 +41,34 @@
   <p>I want to make...
     <div class="chips chips-placeholder" id="query"></div>
 
-    <button class="btn waves-effect waves-light" id="submit" type="submit" name="action" onclick="sendYummly()">
-      Recipe Me
-      <i class="material-icons right">add_circle_outline</i>
-    </button>
+    <div class='row' id='buttons'>
+      <div class='col s4' id='submitbtn'>
+        <button class="btn waves-effect green accent-4" id="submit" type="submit" name="action" onclick="sendYummly()">
+          Recipe Me
+          <i class="material-icons right">local_dining</i>
+        </button>
+      </div>
+
+      <div class='col s4' id='attribution'>
+        Recipe search powered by <a href='http://www.yummly.co/recipes'><img alt='Yummly' src='https://static.yummly.co/api-logo.png'/></a>
+      </div>
+
+      <div class='col s4' id='clearbtn'>
+        <button class="btn waves-effect deep-orange darken-3" id="clear" type="submit" name="action" onclick="clearYummly()">
+          Clear
+          <i class="material-icons right">clear</i>
+        </button>
+      </div>
+    </div>
+
 
     <div id='putResults'></div>
 
 
-    <footer class="page-footer">
+    <footer class="page-footer grey darken-2">
       <div class="footer-copyright">
-        <div class="container">
+        <div class="container" id="copyright">
           © 2017 Cole Tomlinson
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
         </div>
       </div>
     </footer>
