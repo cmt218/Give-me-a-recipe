@@ -50,8 +50,14 @@ footer.page-footer {
 	right: 0;
 }
 
-
-
 #buttons {
 	padding-bottom: 40px;
+}
+
+.card-content {
+	text-align: center;
+}
+
+#putResults {
+	min-height: 300px;
 }

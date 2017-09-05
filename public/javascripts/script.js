@@ -6,8 +6,8 @@ function sendYummly(){
 		type: 'POST',
 		data: JSON.stringify(data),
 		contentType: 'application/json',
-		url: 'http://localhost:6969/getYummly',
-		//url: 'https://thawing-headland-77204.herokuapp.com/getYummly',
+		//url: 'http://localhost:6969/getYummly',
+		url: 'https://thawing-headland-77204.herokuapp.com/getYummly',
 		success: function(data){
 			appendResults(data);
 		}
@@ -41,10 +41,9 @@ function fetchURL(button){
 		type: 'POST',
 		data: JSON.stringify(data),
 		contentType: 'application/json',
-		url: 'http://localhost:6969/getRecipe',
-		//url: 'https://thawing-headland-77204.herokuapp.com/getRecipe',
+		//url: 'http://localhost:6969/getRecipe',
+		url: 'https://thawing-headland-77204.herokuapp.com/getRecipe',
 		success: function(data){
-			//console.log(data.source);
 			window.location.href = data.source.sourceRecipeUrl;
 		}
 	});
@@ -59,10 +58,15 @@ function appendResults(response){
 			cardClone.css('display', 'unset');
 			$('#putCard'+gridIndex).append(cardClone);
 			gridIndex++;
-			$('img', cardClone).attr('src', recipe.smallImageUrls);
+			$('img', cardClone).attr('src', recipe.imageUrlsBySize[90]);
 			$('.card-title' ,cardClone).html(recipe.recipeName);
-			$('button', cardClone).attr('onclick', 'fetchURL(this)').html('go to recipe');
+			$('button', cardClone).attr('onclick', 'fetchURL(this)');
 			$('button', cardClone).attr('id', recipe.id);
+			var rating=recipe.rating;
+			while(rating > 0){
+				$('.card-content', cardClone).append('<i class="material-icons">stars</i>');
+				rating--;
+			}
 		});
 }
 
@@ -80,11 +84,13 @@ function clearYummly() {
 	while($('#query').material_chip('data').length){
 		$('#query').material_chip('data').pop();
 	}
-	console.log($('#ingredients').material_chip('data'));
-	console.log($('#query').material_chip('data'));
 }
 
-
+//workaround to open new tab
+function newTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
 
 //materialize chip logic
 
@@ -97,6 +103,3 @@ $('#query.chips').material_chip({
   placeholder: 'Ex: Casserole',
   secondaryPlaceholder: '+',
 });
-
-
-

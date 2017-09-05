@@ -4,7 +4,7 @@ var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  	res.render('index', { title: 'Express', name: 'Cole'});
+  	res.render('index', { title: 'Home', name: 'Cole'});
 });
 
 
