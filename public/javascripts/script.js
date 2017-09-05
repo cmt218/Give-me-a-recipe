@@ -7,7 +7,7 @@ function sendYummly(){
 		data: JSON.stringify(data),
 		contentType: 'application/json',
 		//url: 'http://localhost:6969/getYummly',
-		url: 'https://thawing-headland-77204/getYummly'
+		url: 'https://thawing-headland-77204.herokuapp.com/getYummly',
 		success: function(data){
 			appendResults(data);
 		}
@@ -42,7 +42,7 @@ function fetchURL(button){
 		data: JSON.stringify(data),
 		contentType: 'application/json',
 		//url: 'http://localhost:6969/getRecipe',
-		url: 'https://thawing-headland-77204/getRecipe',
+		url: 'https://thawing-headland-77204.herokuapp.com/getRecipe',
 		success: function(data){
 			//console.log(data.source);
 			window.location.href = data.source.sourceRecipeUrl;
