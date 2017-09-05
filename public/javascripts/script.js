@@ -6,7 +6,8 @@ function sendYummly(){
 		type: 'POST',
 		data: JSON.stringify(data),
 		contentType: 'application/json',
-		url: 'http://localhost:6969/getYummly',
+		//url: 'http://localhost:6969/getYummly',
+		url: 'https://thawing-headland-77204/getYummly'
 		success: function(data){
 			appendResults(data);
 		}
@@ -40,7 +41,8 @@ function fetchURL(button){
 		type: 'POST',
 		data: JSON.stringify(data),
 		contentType: 'application/json',
-		url: 'http://localhost:6969/getRecipe',
+		//url: 'http://localhost:6969/getRecipe',
+		url: 'https://thawing-headland-77204/getRecipe',
 		success: function(data){
 			//console.log(data.source);
 			window.location.href = data.source.sourceRecipeUrl;
